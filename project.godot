@@ -1,0 +1,76 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="The_Mirror_Game"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+DiscordSDKLoader="*res://addons/discord-sdk-gd/nodes/core_updater.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+GameData="*res://GAME_DATA.gd"
+
+[display]
+
+window/size/resizable=false
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="The_Mirror_Game"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg", "res://addons/godot_icon/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+texture_filtering={
+"type": "bool",
+"value": true
+}
+affine_texture_mapping={
+"type": "bool",
+"value": true
+}
+texture_lod_halve_distance={
+"type": "float",
+"value": 0.0
+}
+vertex_snap_intensity={
+"type": "int",
+"value": 0
+}
+fog_color={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fog_start_distance={
+"type": "float",
+"value": 0.0
+}
+fog_end_distance={
+"type": "float",
+"value": 0.0
+}
+cull_distance={
+"type": "float",
+"value": 0.0
+}

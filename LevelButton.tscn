@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu5k1waxok4h7"]
+
+[ext_resource type="Script" path="res://LevelButton.gd" id="1_y0bfx"]
+[ext_resource type="PackedScene" uid="uid://du5e736ig0b3i" path="res://Level1.tscn" id="2_jbgdb"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://font/connection_ii/ConnectionII.otf" id="3_2eyup"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l62d2"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l42dj"]
+size = Vector2(120, 120)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1j0c2"]
+size = Vector2(130, 130)
+
+[sub_resource type="FontVariation" id="FontVariation_4ji86"]
+base_font = ExtResource("3_2eyup")
+
+[node name="LevelButton" type="TextureButton"]
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(70, 70)
+texture_normal = SubResource("PlaceholderTexture2D_l62d2")
+texture_pressed = SubResource("PlaceholderTexture2D_l42dj")
+texture_hover = SubResource("PlaceholderTexture2D_1j0c2")
+script = ExtResource("1_y0bfx")
+level_scene = ExtResource("2_jbgdb")
+
+[node name="LevelNumberLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
+theme_override_fonts/font = SubResource("FontVariation_4ji86")
+theme_override_font_sizes/font_size = 70
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

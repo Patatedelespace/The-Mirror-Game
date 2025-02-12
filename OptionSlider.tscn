@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbc6dq8cmdw0c"]
+
+[ext_resource type="Theme" uid="uid://vo2yv6eaureq" path="res://themes/slider.tres" id="1_u72dp"]
+[ext_resource type="Script" path="res://HSlider.gd" id="2_cjjpm"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://font/connection_ii/ConnectionII.otf" id="2_hlaa3"]
+[ext_resource type="Script" path="res://ValueLabel.gd" id="3_k52wc"]
+
+[sub_resource type="FontVariation" id="FontVariation_mlbi2"]
+base_font = ExtResource("2_hlaa3")
+
+[node name="OptionSlider" type="HBoxContainer"]
+
+[node name="HSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(300, 56)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_u72dp")
+min_value = -30.0
+max_value = 0.0
+step = 0.3
+script = ExtResource("2_cjjpm")
+
+[node name="ValueLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_mlbi2")
+theme_override_font_sizes/font_size = 25
+text = "100"
+script = ExtResource("3_k52wc")
+
+[connection signal="mouse_exited" from="HSlider" to="HSlider" method="_on_mouse_exited"]
+[connection signal="value_changed" from="HSlider" to="ValueLabel" method="_on_h_slider_value_changed"]

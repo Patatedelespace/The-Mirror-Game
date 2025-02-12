@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://b306eeheepv61"]
+
+[ext_resource type="Script" path="res://menu_button.gd" id="1_0qq6q"]
+[ext_resource type="Texture2D" uid="uid://dfgpovi7p4by" path="res://textures/hover_menu_button.png" id="1_8drip"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://font/connection_ii/ConnectionII.otf" id="1_sff4x"]
+
+[sub_resource type="FontVariation" id="FontVariation_au3ss"]
+resource_local_to_scene = true
+base_font = ExtResource("1_sff4x")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ba1b4"]
+resource_name = "focus_in"
+length = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [54, 45]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.139626]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0349066]
+}
+
+[sub_resource type="Animation" id="Animation_r7rl2"]
+resource_name = "focus_out"
+length = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [45, 54]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.139626, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6go26"]
+_data = {
+"focus_in": SubResource("Animation_ba1b4"),
+"focus_out": SubResource("Animation_r7rl2")
+}
+
+[node name="MenuButton" type="Control"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 64.0
+script = ExtResource("1_0qq6q")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+pivot_offset = Vector2(256, 32)
+theme_override_fonts/font = SubResource("FontVariation_au3ss")
+theme_override_font_sizes/font_size = 54
+text = "Menu Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+texture_hover = ExtResource("1_8drip")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6go26")
+}
+
+[connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
+[connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
