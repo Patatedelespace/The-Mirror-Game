@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="OptionsData" load_steps=2 format=3 uid="uid://bnd301isuocxx"]
+
+[ext_resource type="Script" path="res://scripts/OPTIONS.gd" id="1_32rtp"]
+
+[resource]
+script = ExtResource("1_32rtp")

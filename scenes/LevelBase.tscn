@@ -102,9 +102,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_byxwm")]
-z_index = 7
-offset_top = -648.0
-offset_bottom = -648.0
+z_index = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
