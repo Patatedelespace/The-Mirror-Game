@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://h8jotjubaykd"]
+
+[ext_resource type="PackedScene" uid="uid://dg1vnrxoopsq1" path="res://scenes/OptionsMenuOptions.tscn" id="1_fq4vv"]
+[ext_resource type="Script" path="res://scenes/in_game_options.gd" id="1_j8jp1"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://assets/font/connection_ii/ConnectionII.otf" id="2_1awk1"]
+[ext_resource type="PackedScene" uid="uid://b306eeheepv61" path="res://scenes/menu_button.tscn" id="4_30sif"]
+
+[sub_resource type="FontVariation" id="FontVariation_lrmpi"]
+base_font = ExtResource("2_1awk1")
+
+[sub_resource type="FontVariation" id="FontVariation_kc40v"]
+resource_local_to_scene = true
+base_font = ExtResource("2_1awk1")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[node name="InGameOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j8jp1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.45098)
+
+[node name="OptionMenuOptions" parent="." instance=ExtResource("1_fq4vv")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 1088.0
+offset_bottom = 600.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 408.0
+offset_top = 64.0
+offset_right = 744.0
+offset_bottom = 157.0
+theme_override_fonts/font = SubResource("FontVariation_lrmpi")
+theme_override_font_sizes/font_size = 89
+text = "OPTIONS"
+
+[node name="BackButton" parent="." instance=ExtResource("4_30sif")]
+offset_left = -128.0
+offset_right = 384.0
+menu = "NONE"
+action = "emit"
+
+[node name="Label" parent="BackButton" index="0"]
+rotation = 0.0349066
+theme_override_fonts/font = SubResource("FontVariation_kc40v")
+theme_override_font_sizes/font_size = 45
+text = "◀ BACK"
+
+[connection signal="pushed" from="BackButton" to="." method="_on_back_button_pushed"]
+
+[editable path="BackButton"]

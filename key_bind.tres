@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ControlsRemap" load_steps=2 format=3 uid="uid://dkpi30xbon25v"]
 
-[ext_resource type="Script" path="res://ControlsRemap.gd" id="1_gk3c2"]
+[ext_resource type="Script" path="res://scripts/ControlsRemap.gd" id="1_gk3c2"]
 
 [resource]
 script = ExtResource("1_gk3c2")

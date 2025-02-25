@@ -1,0 +1,176 @@
+[gd_scene load_steps=14 format=3 uid="uid://gaumnh1c6yks"]
+
+[ext_resource type="PackedScene" uid="uid://bu5k1waxok4h7" path="res://scenes/LevelButton.tscn" id="1_mk1kg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hvi8p"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1xl0h"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tkw6m"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r11dr"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pbal7"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3omya"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3ex02"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yc3pt"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_of3j5"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ywet3"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sf478"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cn8wu"]
+resource_local_to_scene = true
+size = Vector2(140, 140)
+
+[node name="LevelSelection" type="ScrollContainer"]
+custom_minimum_size = Vector2(1024, 456)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -128.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="LevelButton" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_hvi8p")
+texture_pressed = SubResource("PlaceholderTexture2D_hvi8p")
+texture_hover = SubResource("PlaceholderTexture2D_hvi8p")
+texture_disabled = SubResource("PlaceholderTexture2D_hvi8p")
+texture_focused = SubResource("PlaceholderTexture2D_hvi8p")
+
+[node name="LevelButton2" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_1xl0h")
+texture_pressed = SubResource("PlaceholderTexture2D_1xl0h")
+texture_hover = SubResource("PlaceholderTexture2D_1xl0h")
+texture_disabled = SubResource("PlaceholderTexture2D_1xl0h")
+texture_focused = SubResource("PlaceholderTexture2D_1xl0h")
+level_number = 2
+
+[node name="LevelButton3" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_tkw6m")
+texture_pressed = SubResource("PlaceholderTexture2D_tkw6m")
+texture_hover = SubResource("PlaceholderTexture2D_tkw6m")
+texture_disabled = SubResource("PlaceholderTexture2D_tkw6m")
+texture_focused = SubResource("PlaceholderTexture2D_tkw6m")
+level_number = 3
+
+[node name="LevelButton4" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_r11dr")
+texture_pressed = SubResource("PlaceholderTexture2D_r11dr")
+texture_hover = SubResource("PlaceholderTexture2D_r11dr")
+texture_disabled = SubResource("PlaceholderTexture2D_r11dr")
+texture_focused = SubResource("PlaceholderTexture2D_r11dr")
+
+[node name="LevelButton5" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_pbal7")
+texture_pressed = SubResource("PlaceholderTexture2D_pbal7")
+texture_hover = SubResource("PlaceholderTexture2D_pbal7")
+texture_disabled = SubResource("PlaceholderTexture2D_pbal7")
+texture_focused = SubResource("PlaceholderTexture2D_pbal7")
+
+[node name="LevelButton6" parent="HBoxContainer/HBoxContainer" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_3omya")
+texture_pressed = SubResource("PlaceholderTexture2D_3omya")
+texture_hover = SubResource("PlaceholderTexture2D_3omya")
+texture_disabled = SubResource("PlaceholderTexture2D_3omya")
+texture_focused = SubResource("PlaceholderTexture2D_3omya")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="LevelButton" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_3ex02")
+texture_pressed = SubResource("PlaceholderTexture2D_3ex02")
+texture_hover = SubResource("PlaceholderTexture2D_3ex02")
+texture_disabled = SubResource("PlaceholderTexture2D_3ex02")
+texture_focused = SubResource("PlaceholderTexture2D_3ex02")
+
+[node name="LevelButton2" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_yc3pt")
+texture_pressed = SubResource("PlaceholderTexture2D_yc3pt")
+texture_hover = SubResource("PlaceholderTexture2D_yc3pt")
+texture_disabled = SubResource("PlaceholderTexture2D_yc3pt")
+texture_focused = SubResource("PlaceholderTexture2D_yc3pt")
+
+[node name="LevelButton3" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_of3j5")
+texture_pressed = SubResource("PlaceholderTexture2D_of3j5")
+texture_hover = SubResource("PlaceholderTexture2D_of3j5")
+texture_disabled = SubResource("PlaceholderTexture2D_of3j5")
+texture_focused = SubResource("PlaceholderTexture2D_of3j5")
+
+[node name="LevelButton4" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_ywet3")
+texture_pressed = SubResource("PlaceholderTexture2D_ywet3")
+texture_hover = SubResource("PlaceholderTexture2D_ywet3")
+texture_disabled = SubResource("PlaceholderTexture2D_ywet3")
+texture_focused = SubResource("PlaceholderTexture2D_ywet3")
+
+[node name="LevelButton5" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_sf478")
+texture_pressed = SubResource("PlaceholderTexture2D_sf478")
+texture_hover = SubResource("PlaceholderTexture2D_sf478")
+texture_disabled = SubResource("PlaceholderTexture2D_sf478")
+texture_focused = SubResource("PlaceholderTexture2D_sf478")
+
+[node name="LevelButton6" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("1_mk1kg")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_cn8wu")
+texture_pressed = SubResource("PlaceholderTexture2D_cn8wu")
+texture_hover = SubResource("PlaceholderTexture2D_cn8wu")
+texture_disabled = SubResource("PlaceholderTexture2D_cn8wu")
+texture_focused = SubResource("PlaceholderTexture2D_cn8wu")

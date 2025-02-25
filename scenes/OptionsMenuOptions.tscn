@@ -1,0 +1,171 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg1vnrxoopsq1"]
+
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://assets/font/connection_ii/ConnectionII.otf" id="1_4jgeb"]
+[ext_resource type="Script" path="res://scripts/options_menu_options.gd" id="1_xc0iy"]
+[ext_resource type="PackedScene" uid="uid://bbc6dq8cmdw0c" path="res://scenes/OptionSlider.tscn" id="2_otd78"]
+[ext_resource type="Script" path="res://scripts/GeneralVolumeSlider.gd" id="3_w61ev"]
+[ext_resource type="Script" path="res://scripts/MusicVolumeSlider.gd" id="4_egm78"]
+[ext_resource type="PackedScene" uid="uid://baysx4far3h4x" path="res://scenes/OptionSelector.tscn" id="6_tawui"]
+
+[sub_resource type="FontVariation" id="FontVariation_8r4kb"]
+base_font = ExtResource("1_4jgeb")
+
+[sub_resource type="FontVariation" id="FontVariation_6ygra"]
+base_font = ExtResource("1_4jgeb")
+
+[sub_resource type="FontVariation" id="FontVariation_n8848"]
+base_font = ExtResource("1_4jgeb")
+
+[node name="OptionMenuOptions" type="ScrollContainer"]
+offset_right = 1024.0
+offset_bottom = 408.0
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_xc0iy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AudioSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AudioSectionLabel" type="Label" parent="VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_8r4kb")
+theme_override_font_sizes/font_size = 71
+text = "AUDIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioOptions" type="VBoxContainer" parent="VBoxContainer/AudioSection"]
+layout_mode = 2
+
+[node name="MasterVolumeOption" type="HBoxContainer" parent="VBoxContainer/AudioSection/AudioOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="OptionNameLabel" type="Label" parent="VBoxContainer/AudioSection/AudioOptions/MasterVolumeOption"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_6ygra")
+theme_override_font_sizes/font_size = 54
+text = "Master Volume"
+
+[node name="Control" type="Control" parent="VBoxContainer/AudioSection/AudioOptions/MasterVolumeOption"]
+custom_minimum_size = Vector2(26, 80)
+layout_mode = 2
+
+[node name="MasterVolumeSlider" parent="VBoxContainer/AudioSection/AudioOptions/MasterVolumeOption" instance=ExtResource("2_otd78")]
+layout_mode = 2
+script = ExtResource("3_w61ev")
+default_volume = -15
+
+[node name="MusicVolumeOption" type="HBoxContainer" parent="VBoxContainer/AudioSection/AudioOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="OptionNameLabel" type="Label" parent="VBoxContainer/AudioSection/AudioOptions/MusicVolumeOption"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_6ygra")
+theme_override_font_sizes/font_size = 54
+text = "Music Volume"
+
+[node name="Control" type="Control" parent="VBoxContainer/AudioSection/AudioOptions/MusicVolumeOption"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+
+[node name="MusicVolumeSlider" parent="VBoxContainer/AudioSection/AudioOptions/MusicVolumeOption" instance=ExtResource("2_otd78")]
+layout_mode = 2
+script = ExtResource("4_egm78")
+default_volume = -30
+
+[node name="VideoSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VideoSectionLabel" type="Label" parent="VBoxContainer/VideoSection"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_n8848")
+theme_override_font_sizes/font_size = 71
+text = "VIDEO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoOptions" type="VBoxContainer" parent="VBoxContainer/VideoSection"]
+layout_mode = 2
+
+[node name="FullscreenOption" type="HBoxContainer" parent="VBoxContainer/VideoSection/VideoOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="OptionNameLabel" type="Label" parent="VBoxContainer/VideoSection/VideoOptions/FullscreenOption"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_6ygra")
+theme_override_font_sizes/font_size = 54
+text = "Fullscreen"
+
+[node name="Control" type="Control" parent="VBoxContainer/VideoSection/VideoOptions/FullscreenOption"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+
+[node name="OptionSelector" parent="VBoxContainer/VideoSection/VideoOptions/FullscreenOption" instance=ExtResource("6_tawui")]
+layout_mode = 2
+options = Array[String](["False", "True"])
+
+[node name="AccesibilitySection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AccesibilitySectionLabel" type="Label" parent="VBoxContainer/AccesibilitySection"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_n8848")
+theme_override_font_sizes/font_size = 71
+text = "ACCESIBILITY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AccesibilityOptions" type="VBoxContainer" parent="VBoxContainer/AccesibilitySection"]
+layout_mode = 2
+
+[node name="FullscreenOption" type="HBoxContainer" parent="VBoxContainer/AccesibilitySection/AccesibilityOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="OptionNameLabel" type="Label" parent="VBoxContainer/AccesibilitySection/AccesibilityOptions/FullscreenOption"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_6ygra")
+theme_override_font_sizes/font_size = 54
+text = "Shader"
+
+[node name="Control" type="Control" parent="VBoxContainer/AccesibilitySection/AccesibilityOptions/FullscreenOption"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+
+[node name="OptionSelector" parent="VBoxContainer/AccesibilitySection/AccesibilityOptions/FullscreenOption" instance=ExtResource("6_tawui")]
+layout_mode = 2
+options = Array[String](["VHS/CRT", "VHS", "Old TV", "Glitch", "None"])
+
+[node name="ExtraSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ExtraSectionLabel" type="Label" parent="VBoxContainer/ExtraSection"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_n8848")
+theme_override_font_sizes/font_size = 71
+text = "EXTRA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExtraOptions" type="VBoxContainer" parent="VBoxContainer/ExtraSection"]
+layout_mode = 2
+
+[node name="Void" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[connection signal="value_changed" from="VBoxContainer/VideoSection/VideoOptions/FullscreenOption/OptionSelector" to="." method="_on_fullscreen_option_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/AccesibilitySection/AccesibilityOptions/FullscreenOption/OptionSelector" to="." method="_on_shader_option_value_changed"]

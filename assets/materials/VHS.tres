@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dthabmmlpxotw"]
+
+[ext_resource type="Shader" path="res://assets/shaders/Screen Shaders/VHS.gdshader" id="1_5680i"]
+
+[resource]
+shader = ExtResource("1_5680i")
+shader_parameter/tape_wave_amount = 0.003
+shader_parameter/tape_crease_amount = 9.395
+shader_parameter/color_displacement = 0.0
+shader_parameter/lines_velocity = 0.0

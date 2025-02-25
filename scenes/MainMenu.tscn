@@ -1,0 +1,565 @@
+[gd_scene load_steps=22 format=3 uid="uid://c4hkdf7glsjww"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_4s7db"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://assets/font/connection_ii/ConnectionII.otf" id="2_g3p6l"]
+[ext_resource type="PackedScene" uid="uid://dg1vnrxoopsq1" path="res://scenes/OptionsMenuOptions.tscn" id="3_eq6ye"]
+[ext_resource type="PackedScene" uid="uid://b306eeheepv61" path="res://scenes/menu_button.tscn" id="4_lge8w"]
+[ext_resource type="PackedScene" uid="uid://gaumnh1c6yks" path="res://scenes/LevelSelection.tscn" id="5_3wou5"]
+
+[sub_resource type="Animation" id="Animation_kysip"]
+resource_name = "LevelSelectIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LevelSelect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Main:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1152, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Main:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:current_menu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["LevelSelect"]
+}
+
+[sub_resource type="Animation" id="Animation_usdwl"]
+resource_name = "LevelSelectOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LevelSelect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1152, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Main:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1152, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Main:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:current_menu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Main"]
+}
+
+[sub_resource type="Animation" id="Animation_4wvet"]
+resource_name = "OptionsIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1152, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Main:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:current_menu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Options"]
+}
+
+[sub_resource type="Animation" id="Animation_30drr"]
+resource_name = "OptionsOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1152, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1152, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Main:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:current_menu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Main"]
+}
+
+[sub_resource type="Animation" id="Animation_8c4pa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ap6dc"]
+_data = {
+"LevelSelectIn": SubResource("Animation_kysip"),
+"LevelSelectOut": SubResource("Animation_usdwl"),
+"OptionsIn": SubResource("Animation_4wvet"),
+"OptionsOut": SubResource("Animation_30drr"),
+"RESET": SubResource("Animation_8c4pa")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_rgxhu"]
+base_font = ExtResource("2_g3p6l")
+
+[sub_resource type="FontVariation" id="FontVariation_r4vqt"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_pw7fd"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+
+[sub_resource type="Animation" id="Animation_413ji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameTitleRegular:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameTitleReflect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 244)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 105)]
+}
+
+[sub_resource type="Animation" id="Animation_mn3pe"]
+resource_name = "title_floating_animation"
+length = 4.0
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("GameTitleRegular:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(112, 70), Vector2(112, 30), Vector2(112, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("GameTitleReflect:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(112, 244), Vector2(112, 203), Vector2(112, 244)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(0, 70), Vector2(0, 30), Vector2(0, 70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6tagr"]
+_data = {
+"RESET": SubResource("Animation_413ji"),
+"title_floating_animation": SubResource("Animation_mn3pe")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_mja17"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_rr8w6"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_ngv7a"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_debxk"]
+resource_local_to_scene = true
+base_font = ExtResource("2_g3p6l")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_4s7db")
+current_menu = "LevelSelect"
+
+[node name="SlideAnimPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Options")
+libraries = {
+"": SubResource("AnimationLibrary_ap6dc")
+}
+
+[node name="Options" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Options"]
+offset_left = 408.0
+offset_top = 64.0
+offset_right = 744.0
+offset_bottom = 157.0
+theme_override_fonts/font = SubResource("FontVariation_rgxhu")
+theme_override_font_sizes/font_size = 89
+text = "OPTIONS"
+
+[node name="OptionsMenuOptions" parent="Options" instance=ExtResource("3_eq6ye")]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 1088.0
+offset_bottom = 600.0
+grow_horizontal = 2
+
+[node name="BackButton" parent="Options" instance=ExtResource("4_lge8w")]
+offset_left = -128.0
+offset_right = 384.0
+menu = "Main"
+action = "NONE"
+
+[node name="Label" parent="Options/BackButton" index="0"]
+rotation = 0.0349066
+theme_override_fonts/font = SubResource("FontVariation_r4vqt")
+theme_override_font_sizes/font_size = 45
+text = "◀ BACK"
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="GameTitle" type="Node2D" parent="Main"]
+position = Vector2(0, 105)
+
+[node name="GameTitleRegular" type="Label" parent="Main/GameTitle"]
+z_index = 2
+offset_left = 112.0
+offset_top = 70.0
+offset_right = 1033.0
+offset_bottom = 181.0
+rotation = -3.29097e-05
+scale = Vector2(1.00758, 0.931726)
+theme_override_fonts/font = SubResource("FontVariation_pw7fd")
+theme_override_font_sizes/font_size = 107
+text = "THE MIRROR GAME"
+
+[node name="GameTitleReflect" type="Label" parent="Main/GameTitle"]
+modulate = Color(1, 1, 1, 0.227451)
+z_index = 2
+offset_left = 112.0
+offset_top = 244.0
+offset_right = 1033.0
+offset_bottom = 355.0
+scale = Vector2(1.008, -1)
+theme_override_fonts/font = SubResource("FontVariation_pw7fd")
+theme_override_font_sizes/font_size = 107
+text = "THE MIRROR GAME"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/GameTitle"]
+libraries = {
+"": SubResource("AnimationLibrary_6tagr")
+}
+autoplay = "title_floating_animation"
+
+[node name="ColorRect" type="ColorRect" parent="Main"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="LevelSelectButton" parent="Main" instance=ExtResource("4_lge8w")]
+offset_left = 320.0
+offset_top = 431.0
+offset_right = 832.0
+offset_bottom = 495.0
+menu = "LevelSelect"
+
+[node name="Label" parent="Main/LevelSelectButton" index="0"]
+theme_override_fonts/font = SubResource("FontVariation_mja17")
+text = "Play"
+
+[node name="OptionsButton" parent="Main" instance=ExtResource("4_lge8w")]
+offset_left = 320.0
+offset_top = 319.0
+offset_right = 832.0
+offset_bottom = 383.0
+menu = "Options"
+
+[node name="Label" parent="Main/OptionsButton" index="0"]
+theme_override_fonts/font = SubResource("FontVariation_rr8w6")
+text = "Options
+"
+
+[node name="LeaveButton" parent="Main" instance=ExtResource("4_lge8w")]
+offset_left = 320.0
+offset_top = 543.0
+offset_right = 832.0
+offset_bottom = 607.0
+menu = "NONE"
+action = "leave"
+
+[node name="Label" parent="Main/LeaveButton" index="0"]
+theme_override_fonts/font = SubResource("FontVariation_ngv7a")
+text = "Leave"
+
+[node name="LevelSelect" type="Node2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="ColorRect" type="ColorRect" parent="LevelSelect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="LevelSelection" parent="LevelSelect" instance=ExtResource("5_3wou5")]
+z_index = 1
+custom_minimum_size = Vector2(1000, 456)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 58.0
+offset_top = 120.0
+offset_right = 1082.0
+offset_bottom = 576.0
+
+[node name="BackButton" parent="LevelSelect" instance=ExtResource("4_lge8w")]
+offset_left = -128.0
+offset_right = 384.0
+menu = "Main"
+action = "NONE"
+
+[node name="Label" parent="LevelSelect/BackButton" index="0"]
+offset_bottom = 76.0
+theme_override_fonts/font = SubResource("FontVariation_debxk")
+text = "◀ BACK"
+
+[editable path="Options/BackButton"]
+[editable path="Main/LevelSelectButton"]
+[editable path="Main/OptionsButton"]
+[editable path="Main/LeaveButton"]
+[editable path="LevelSelect/BackButton"]

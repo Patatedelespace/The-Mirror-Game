@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmj0qgkcxya0o"]
+
+[ext_resource type="Script" path="res://scripts/level_base.gd" id="1_nbxs3"]
+[ext_resource type="PackedScene" uid="uid://b306eeheepv61" path="res://scenes/menu_button.tscn" id="2_cjjpq"]
+[ext_resource type="FontFile" uid="uid://dhbgcfs8kn0qo" path="res://assets/font/connection_ii/ConnectionII.otf" id="3_coxss"]
+[ext_resource type="PackedScene" uid="uid://bb0qjohsmtkim" path="res://scenes/PauseMenu.tscn" id="4_byxwm"]
+
+[sub_resource type="FontVariation" id="FontVariation_jgdc0"]
+resource_local_to_scene = true
+base_font = ExtResource("3_coxss")
+variation_transform = Transform2D(1, 0, 0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_eti5d"]
+resource_name = "PauseIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f2lov"]
+resource_name = "PauseOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+
+[sub_resource type="Animation" id="Animation_tx3ko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o58q3"]
+_data = {
+"PauseIn": SubResource("Animation_eti5d"),
+"PauseOut": SubResource("Animation_f2lov"),
+"RESET": SubResource("Animation_tx3ko")
+}
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_nbxs3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(5.88, 4.805)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="MenuButton" parent="." instance=ExtResource("2_cjjpq")]
+z_index = 2
+offset_left = -48.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 80.0
+scale = Vector2(0.715, 0.715)
+menu = "NONE"
+action = "emit"
+
+[node name="Label" parent="MenuButton" index="0"]
+offset_left = -67.1329
+offset_right = 444.867
+theme_override_fonts/font = SubResource("FontVariation_jgdc0")
+text = "◀ Pause"
+
+[node name="LevelNameLabel" type="Label" parent="."]
+z_index = 2
+offset_left = 416.0
+offset_top = 16.0
+offset_right = 1120.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("3_coxss")
+theme_override_font_sizes/font_size = 41
+text = "Level Name"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_byxwm")]
+z_index = 7
+offset_top = -648.0
+offset_bottom = -648.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o58q3")
+}
+
+[connection signal="pushed" from="MenuButton" to="." method="_on_menu_button_pushed"]
+[connection signal="main_menu" from="PauseMenu" to="." method="_on_pause_menu_main_menu"]
+[connection signal="resume" from="PauseMenu" to="." method="_on_pause_menu_resume"]
+
+[editable path="MenuButton"]
